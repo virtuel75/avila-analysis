@@ -1,7 +1,9 @@
-from flask import Flask, send_from_directory, jsonify
+from flask import Flask, send_from_directory, jsonify, request
+from flask_cors import CORS, cross_origin
 import joblib
 
 app = Flask(__name__)
+cors = CORS(app)
 
 classifier_model = None
 
@@ -32,14 +34,18 @@ def predict():
     """
     Make prediction from input
     """
-    if classifier_model is None:
-        result = ('unknow', 0)
-    else:
-        #predictions = classifier_model.predict(x)
-        #probability = classifier_model.predict_proba(x)
+    result = ('unknow', 0)
+    data = request.form.get('inputs')
 
-        #result = list(zip(predictions, [max(p) for p in probability]))[0]
-        result = ('A', .9)
+    if data:
+        data = [float(x) for x in data.split(',')]
+        print(data)
+
+        if classifier_model is not None:
+            predictions = classifier_model.predict(data)
+            probability = classifier_model.predict_proba(data)
+
+            result = list(zip(predictions, [max(p) for p in probability]))[0]
     
     return jsonify({ 'prediction': result[0], 'accuracy': result[1] })
 

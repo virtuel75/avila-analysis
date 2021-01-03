@@ -1,0 +1,6 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <p class="text-center slider-label">{{ label }}</p>
+    <mat-slider style="min-height: 300px;" thumbLabel [vertical]="vertical" [min]="min" [max]="max" [value]="value"
+        [step]="step" (change)="onValueChange($event)"></mat-slider>
+    <span class="bg-light mt-3 mt-md-4 px-3 py-2 rounded-pill"> {{ value }}</span>
+</div>

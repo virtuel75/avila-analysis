@@ -1,7 +1,45 @@
-<app-header></app-header>
+<app-header class="border-bottom"></app-header>
 
-<main #main>
-    
+<main #main class="bg-light h-100">
+    <app-section>
+        <div class="card border-dashed">
+            <div class="card-body">
+                <div class="row justify-content-between mb-3">
+                    <div class="col-2">
+                        <app-slider [(value)]="f1_val" [step]="step" [min]="f1_min" [max]="f1_max" [label]="f1_label" (valueChange)="predict()">
+                        </app-slider>
+                    </div>
+
+                    <div class="col-2">
+                        <app-slider [(value)]="f2_val" [step]="step" [min]="f2_min" [max]="f2_max" [label]="f2_label" (valueChange)="predict()">
+                        </app-slider>
+                    </div>
+
+                    <div class="col-2">
+                        <app-slider [(value)]="f3_val" [step]="step" [min]="f3_min" [max]="f3_max" [label]="f3_label" (valueChange)="predict()">
+                        </app-slider>
+                    </div>
+
+                    <div class="col-2">
+                        <app-slider [(value)]="f5_val" [step]="step" [min]="f5_min" [max]="f5_max" [label]="f5_label" (valueChange)="predict()">
+                        </app-slider>
+                    </div>
+
+                    <div class="col-2">
+                        <app-slider [(value)]="f7_val" [step]="step" [min]="f7_min" [max]="f7_max" [label]="f7_label" (valueChange)="predict()">
+                        </app-slider>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-section>
+
+    <app-section>
+        <p class="mb-0 bg-primary display-1 text-center text-white rounded-top">{{ prediction }}</p>
+        <div class="card-footer text-muted rounded-bottom">
+            <p class="text-center mb-0">Score: {{ score }}</p>
+        </div>
+    </app-section>
 </main>
 
-<app-footer></app-footer>
+<app-footer class="bg-light"></app-footer>

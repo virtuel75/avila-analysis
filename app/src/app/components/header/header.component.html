@@ -1,13 +1,15 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar px-0">
     <div class="container d-flex flex-row justify-content-between align-items-center">
         <!-- title of the header -->
         <a class="navbar-brand text-dark py-0" routerLink="/" style="cursor: pointer;">
-            <span>Avila predictor</span>
+            <span class="color-white">Avila predictor</span>
         </a>
 
         <!-- Github repos -->
         <div>
-            <a mat-icon-button class="border text-secondary" href="/" target="_blank">
+            <a mat-button class="border" href="https://github.com/virtuel75/avila-analysis"
+                target="_blank">
+                <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
                 <span>Github</span>
             </a>
         </div>
