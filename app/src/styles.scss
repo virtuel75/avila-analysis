@@ -1,0 +1,28 @@
+/* fonts */
+@font-face {
+  font-family: "CircularStd font";
+  src: url("assets/fonts/CircularStd-Book.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CircularStd bold";
+  src: url("assets/fonts/CircularStd-Bold.otf");
+  font-display: swap;
+}
+
+// importing themes
+@import "./themes/bootstrap/bootstrap";
+@import "./themes/material/material";
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "CircularStd bold", -apple-system, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;;
+}
+
+button:focus {
+  outline: none !important;
+}
