@@ -39,11 +39,11 @@ def predict():
 
     if data:
         data = [float(x) for x in data.split(',')]
-        print(data)
 
         if classifier_model is not None:
-            predictions = classifier_model.predict(data)
-            probability = classifier_model.predict_proba(data)
+            x = [data]
+            predictions = classifier_model.predict(x)
+            probability = classifier_model.predict_proba(x)
 
             result = list(zip(predictions, [max(p) for p in probability]))[0]
     

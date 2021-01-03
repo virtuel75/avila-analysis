@@ -55,6 +55,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   public ngAfterViewInit(): void {
     this._windowHeightSubscription = this._windowService.Height.subscribe(this.resizeMainView)
+    this.predict()
   }
 
   public ngOnDestroy(): void {
