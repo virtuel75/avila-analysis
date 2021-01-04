@@ -1,7 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
-import { PredictorService } from './predictor.service';
+import { API_BASE_URL, PredictorService } from './predictor.service';
 import { WindowService } from './window.service';
 
 @NgModule({
@@ -10,7 +11,10 @@ import { WindowService } from './window.service';
   ],
   providers: [
     WindowService,
-    PredictorService
+    PredictorService,
+    {
+      provide: API_BASE_URL, useValue: environment.api_base_url
+    }
   ]
 })
 export class ServicesModule { }
